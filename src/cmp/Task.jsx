@@ -15,10 +15,10 @@ const Task = ({text, title}) => {
     }
 
     const [select , setSelect] = useState("false");
-    const [doneTask , setDoneTask ]= useState("false");
+    const [doneTask , setDoneTask ] = useState("false");
 
     return ( 
-        <div done={doneTask ? 'true' : 'false'} onClick={()=> setSelect(!select)}  className={select ? "task" : " select task"}>
+        <div done={doneTask ? 'false' : 'true'} onClick={()=> setSelect(!select)}  className={select ? "task" : " select task"}>
             <h5 >{title}</h5>
             <p>{text}</p>
             <input className='taskDeleteBtn' type="button" value="delete" />
