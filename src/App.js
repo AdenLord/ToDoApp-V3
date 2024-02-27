@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './cmp/Home';
-import { $ } from 'react-jquery-plugin'
+import { $ } from 'react-jquery-plugin' 
 
 function App() {
   return (

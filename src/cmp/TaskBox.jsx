@@ -1,9 +1,14 @@
 import Task from "./Task";
 
-const TaskBox = () => {
+const TaskBox = ({tasks, setTasks}) => {
     return ( 
         <div>
-            <Task />
+            { tasks.map((task) => (
+               <Task
+                title = {task.title}
+                text = {task.text}
+               /> 
+               )) }
         </div>
      );
 }
