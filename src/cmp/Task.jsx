@@ -3,27 +3,28 @@ import { useState } from 'react';
 
 const Task = ({text, title}) => {
     $(document).ready(function(){
-        $('.taskDeleteBtn').click(function(){
+        $('.taskDeleteBtn').click(function(e){
+            e.stopPropagation();
             $(this).parent().remove();
         });
-
-        $('.taskDoneBtn').click(function(){
-            $(this).parent().attr('select', 'true');
-        })
     });
 
+    const doneTaskHandler = (e) => {
+        e.stopPropagation();
+        setDoneTask(!doneTask)
+    }
+
     const [select , setSelect] = useState("false");
+    const [doneTask , setDoneTask ]= useState("false");
 
     return ( 
-        <div onClick={()=> setSelect(!select)}  className={select ? "task" : " select task"}>
+        <div done={doneTask ? 'true' : 'false'} onClick={()=> setSelect(!select)}  className={select ? "task" : " select task"}>
             <h5 >{title}</h5>
             <p>{text}</p>
             <input className='taskDeleteBtn' type="button" value="delete" />
-            <input className='taskDoneBtn' type="button" value="done" />
+            <input onClick={ doneTaskHandler } className='taskDoneBtn' type="button" value="done" />
         </div>
      );
 }
  
 export default Task;
-
-// onClick={() => setSelectTask(!selectTask)} className={selectTask ? "select" : ""}

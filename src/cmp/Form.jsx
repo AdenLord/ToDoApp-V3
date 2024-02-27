@@ -5,10 +5,19 @@ const Form = ({ tasks, setTasks,inputTitle, setInputTitle,selectTask, setSelectT
     const addTaskHandler = (e) => {
         e.preventDefault();
         setTasks([
-            ...tasks,{ title : inputTitle , text : inputText , select: false }
+            ...tasks,{ title : inputTitle , text : inputText  }
         ])
         setInputText("");
         setInputTitle("");
+    }
+
+    const deleteHandler = (e) =>{
+        let allTasks = document.querySelectorAll('.task');
+        for( let i = 0; i < allTasks.length; i++){
+            if( allTasks[i].attributes.select ){
+                allTasks[i].remove()
+            }
+        }
     }
 
     const inputTitleHandler = (e) => {
@@ -28,7 +37,7 @@ const Form = ({ tasks, setTasks,inputTitle, setInputTitle,selectTask, setSelectT
         <input onChange={inputTextHandler} value={inputText} type="text" />
 
         <input onClick={ addTaskHandler } id="AddBtn" type="button" value="Add" />
-        <input type="button" value="delete" />
+        <input onClick={ deleteHandler } type="button" value="delete" />
     </div>
      );
 }
