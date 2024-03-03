@@ -1,12 +1,11 @@
 import Task from "./Task";
-import shortid from 'shortid';
 
 const TaskBox = ({tasks, setTasks}) => {
     return ( 
         <div id="taskBox">
             { tasks.map((task) => (
                <Task
-                key={shortid.generate()}
+                key={task.id}
                 title = {task.title}
                 text = {task.text}
                /> 

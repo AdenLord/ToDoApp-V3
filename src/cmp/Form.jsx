@@ -1,22 +1,20 @@
+import shortid from 'shortid';
 
-
-const Form = ({ tasks, setTasks,inputTitle, setInputTitle,selectTask, setSelectTask, inputText, setInputText }) => {
+const Form = ({ tasks, setTasks,inputTitle, setInputTitle, inputText, setInputText }) => {
 
     const addTaskHandler = (e) => {
         e.preventDefault();
         setTasks([
-            ...tasks,{ title : inputTitle , text : inputText}
+            ...tasks,{ id :shortid.generate() ,title : inputTitle , text : inputText }
         ])
         setInputText("");
         setInputTitle("");
     }
 
     const deleteHandler = () =>{
-        let allTasks = document.querySelectorAll('.task');
+        let allTasks = document.querySelectorAll('#taskBox > div.select');
         for( let i = 0; i < allTasks.length; i++){
-            if( allTasks[i].classList.contains('select') ){
-                allTasks[i].remove()
-            }
+            allTasks[i].remove();
         }
     }
 
