@@ -3,12 +3,19 @@ import shortid from 'shortid';
 const Form = ({ tasks, setTasks,inputTitle, setInputTitle, inputText, setInputText }) => {
 
     const addTaskHandler = (e) => {
-        e.preventDefault();
-        setTasks([
-            ...tasks,{ id :shortid.generate() ,title : inputTitle , text : inputText }
-        ])
-        setInputText("");
-        setInputTitle("");
+        let titleValue =document.querySelector('#input-title');
+        let textValue =document.querySelector('#input-text');
+
+        if( titleValue.value == "" || textValue.value == "" ){
+            alert('error!!')
+        }else{
+            e.preventDefault();
+            setTasks([
+                ...tasks,{ id :shortid.generate() ,title : inputTitle , text : inputText }
+            ])
+            setInputText("");
+            setInputTitle("");
+        }
     }
 
     const deleteHandler = () =>{
@@ -27,15 +34,15 @@ const Form = ({ tasks, setTasks,inputTitle, setInputTitle, inputText, setInputTe
     }
 
     return ( 
-    <div>
+    <div id='form'>
         <h2>title</h2>
-        <input onChange={inputTitleHandler} value={inputTitle} type="text" />
+        <input id='input-title' onChange={inputTitleHandler} value={inputTitle} type="text" />
 
         <h2>task</h2>
-        <input onChange={inputTextHandler} value={inputText} type="text" />
+        <input id='input-text' onChange={inputTextHandler} value={inputText} type="text" />
 
-        <input onClick={ addTaskHandler } id="AddBtn" type="button" value="Add" />
-        <input onClick={ deleteHandler } type="button" value="delete tasks" />
+        <input className='mybtn' onClick={ addTaskHandler } id="AddBtn" type="button" value="Add" />
+        <input className='mybtn' onClick={ deleteHandler } type="button" value="delete tasks" />
     </div>
      );
 }
