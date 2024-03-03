@@ -64,7 +64,8 @@ code {
   border-radius: 10px;
   padding: 12px;
   cursor: pointer;
-  overflow:scroll;
+  overflow:auto;
+  margin: 10px
 }
 
 .select{
