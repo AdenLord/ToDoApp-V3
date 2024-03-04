@@ -35,14 +35,20 @@ const Form = ({ tasks, setTasks,inputTitle, setInputTitle, inputText, setInputTe
 
     return ( 
     <div id='form'>
-        <h2>title</h2>
-        <input id='input-title' onChange={inputTitleHandler} value={inputTitle} type="text" />
+        <h2>Title</h2>
+        <input id='input-title'
+         onChange={inputTitleHandler} value={inputTitle} type="text" />
 
-        <h2>task</h2>
-        <input id='input-text' onChange={inputTextHandler} value={inputText} type="text" />
+        <h2>Task</h2>
+        <input id='input-text' 
+         onChange={inputTextHandler} value={inputText} type="text" />
 
-        <input className='mybtn' onClick={ addTaskHandler } id="AddBtn" type="button" value="Add" />
-        <input className='mybtn' onClick={ deleteHandler } type="button" value="delete tasks" />
+        <div className='btnBox'>
+        <input className='mybtn'
+            onClick={ addTaskHandler } id="AddBtn" type="button" value="Add" />
+            <input className='mybtn'
+            onClick={ deleteHandler } type="button" value="delete tasks" />
+        </div>
     </div>
      );
 }
