@@ -1,15 +1,16 @@
 import Task from "./Task";
+import Col from 'react-bootstrap/Col';
 
 const TaskBox = ({tasks, setTasks}) => {
-    return ( 
-        <div id="taskBox">
+    return (
+        <div id='taskBox'>
             { tasks.map((task) => (
-               <Task
+            <Task
                 key={task.id}
                 title = {task.title}
                 text = {task.text}
-               /> 
-               )) }
+            /> 
+            )) }
         </div>
      );
 }

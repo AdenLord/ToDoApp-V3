@@ -3,9 +3,10 @@ import { useState } from 'react';
 
 const Task = ({text, title}) => {
     $(document).ready(function(){
+        const taskdiv =   $("#taskBox")
         $('.taskDeleteBtn').click(function(e){
             e.stopPropagation();
-            $(this).parent().remove();
+            $(this). parentsUntil(taskdiv).remove();
         });
     });
 
@@ -21,7 +22,7 @@ const Task = ({text, title}) => {
         <div done={doneTask ? 'false' : 'true'} 
         onClick={()=> setSelect(!select)}  
         className={select ? "task" : " select task"}>
-            
+
             <div className='textBox'>
                 <h5 >{title}</h5>
                 <p>{text}</p>

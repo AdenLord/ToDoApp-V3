@@ -1,6 +1,9 @@
 import Form from './Form';
 import TaskBox from './TaskBox';
 import { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 const Home = () => {
@@ -9,20 +12,24 @@ const Home = () => {
     const [ tasks, setTasks ] = useState([]);
 
     return ( 
-        <div>
-            <Form inputText={inputText}
-                setInputText={setInputText}
-                inputTitle={inputTitle}
-                setInputTitle={setInputTitle}
-                tasks={tasks}
-                setTasks={setTasks}
-            />
+        <Container>
+            <Row>
+                <Form inputText={inputText}
+                    setInputText={setInputText}
+                    inputTitle={inputTitle}
+                    setInputTitle={setInputTitle}
+                    tasks={tasks}
+                    setTasks={setTasks}
+                />
+            </Row>
 
-            < TaskBox
-                tasks={tasks}
-                setTasks={setTasks}   
-             />
-        </div>
+            <Row>
+                < TaskBox
+                    tasks={tasks}
+                    setTasks={setTasks}   
+                />
+            </Row>
+        </Container>
      );
 }
  
